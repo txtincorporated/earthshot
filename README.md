@@ -24,6 +24,6 @@ Earthshot has two major components which will be developed successively:
 ### "SHOULDS"
 #### Phase I (back end):
   - It should database a narrow subset of public Flickr photos that document specific geolocations for quick loading when users open the app.
-  - It should store Flickr's author, license, id, secret, storage path, title, tag and location info for each photo.
+  - It should store Flickr's author, license, id, secret, storage path, title, tags and location info for each photo.
   - It should lazily self-update when users request a given photo.
   - It should handle errors in an orderly way without disrupting the user's experience. 

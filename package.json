@@ -1,0 +1,23 @@
+{
+  "name": "earthshot",
+  "version": "1.0.0",
+  "description": "Simple API to retrieve and database geo-tagged images",
+  "main": "index.js",
+  "scripts": {
+    "test": "MONGODB_URI=mongodb://localhost/geo-test mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/txtincorporated/earthshot.git"
+  },
+  "keywords": [
+    "geodocumentary",
+    "photos"
+  ],
+  "author": "Nathan P. Keene",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/txtincorporated/earthshot/issues"
+  },
+  "homepage": "https://github.com/txtincorporated/earthshot#readme"
+}

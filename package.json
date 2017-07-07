@@ -4,7 +4,11 @@
   "description": "Simple API to retrieve and database geo-tagged images",
   "main": "index.js",
   "scripts": {
-    "test": "MONGODB_URI=mongodb://localhost/geo-test mocha"
+    "start": "nodemon server.js",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "MONGODB_URI=mongodb://localhost/image-test mocha",
+    "test:watch":"MONGODB_URI=mongodb://localhost/image-test nodemon --exec mocha"
   },
   "repository": {
     "type": "git",
@@ -19,5 +23,19 @@
   "bugs": {
     "url": "https://github.com/txtincorporated/earthshot/issues"
   },
-  "homepage": "https://github.com/txtincorporated/earthshot#readme"
+  "homepage": "https://github.com/txtincorporated/earthshot#readme",
+  "dependencies":{
+    "body-parser":"^1.15.2",
+    "express":"^4.14.0",
+    "mongoose":"^4.6.5", 
+    "morgan":"^1.7.0",
+    "node-flickr":"1.0.0"
+  },
+  "devDependencies": {
+    "chai":"^3.5.0",
+    "chai-http":"^3.0.0",
+    "eslint":"^4.1.1",
+    "mocha":"^3.2.0",
+    "nodemon":"^1.9.2"
+  }
 }

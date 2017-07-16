@@ -2,7 +2,7 @@
 Photo sharing for travelers and adventurists
 
 #### Current working branch:
-dev 
+dbBuilder 
 
 ## Introduction
 Earthshot is an app for anyone interested in creating or sharing a photographic record of a particular place.  Photographers may find it interesting but are not necessarily the primary user group.  Earthsot is an app for people seeking to find out what a place looks like with better image quality and aesthetics than the usual map app street view imagery provides, from the viewpoint of other actual users who have photographed it -- or for anyone willing to share their photographic record of the places they have been.  

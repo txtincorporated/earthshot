@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Compiled source #
 ###################
 *.com
@@ -26,6 +25,9 @@
 *.log
 *.sql
 *.sqlite
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # OS generated files #
 ######################
@@ -43,23 +45,8 @@ Thumbs.db
 node_modules
 .env
 public
-=======
-# See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
-
-# testing
+# Testing
 /coverage
 
-# production
-/public/build
-
-# misc
-.DS_Store
-.env
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
->>>>>>> fd93e4c0498f35aec159e130e05c5988a03dd426
+# See https://help.github.com/ignore-files/ for more about ignoring files.

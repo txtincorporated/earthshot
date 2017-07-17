@@ -38,7 +38,11 @@ describe('test 3d party API interface', () => {
 
   const request = chai.request( app );
 
-  it('returns only photos posted since `max-upload-date`');
+  it('returns only photos posted since `max-upload-date`', () => {});
+  it('returns no photos without requested tags', () => {});
+  it('returns no photos w/o lat and lon', () => {});
+  it('returns only photos w/ {safe_search: "1"}', () => {});
+  it('returns no photos w/o photos.farm, photos.server, photos.secret', () => {});
 
 });
 

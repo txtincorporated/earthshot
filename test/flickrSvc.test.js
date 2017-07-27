@@ -1,11 +1,14 @@
 const chai = require( 'chai' ),
-  chaiHttp = require( 'chai-http' )
   assert = chai.assert,
+  expect = chai.expect,
   Flickr = require( 'flickrapi' ),
   env = require( 'dotenv' ),
   app = require( '../lib/app' );
 
 describe('test 3d party API interface', () => {
+  let flickrRes;
+  let yesterDate = (Date.now() - 86400000)/1000 | 0;
+
   before(done => {
     const flickrOptions = {
       api_key: 'env.TESTING_KEY',
@@ -13,12 +16,11 @@ describe('test 3d party API interface', () => {
 
     };
 
-    let flickrRes;
-
     Flickr.tokenOnly(flickrOptions, (error, flickr) => {
       flickr.photos.search({
         tags: 'architecture,landscape',
-        min_upload_date: '',
+        min_upload_date: yesterDate,
+        sort: 'date-posted-asc',
         safe_search: '1',
         content_type: '1',
         media: 'photos',
@@ -27,18 +29,21 @@ describe('test 3d party API interface', () => {
         per_page: '250',
         format: 'json',
         nojsoncallback: '1'
+        
       }, (err, result) => {
         if (err) { throw new Error(err); }
         flickrRes = result.photos;
-        console.log( flickrRes );
+        // console.log( flickrRes );
+        done();
 
       });
     });
   }); 
 
-  const request = chai.request( app );
-
-  it('returns only photos posted since `max-upload-date`', () => {});
+  it('returns only photos posted since `min_upload_date`', done => {
+    expect(flickrRes.photo.dateupload).to.not.be.below(yesterDate);
+    done();
+  });
   it('returns no photos without requested tags', () => {});
   it('returns no photos w/o lat and lon', () => {});
   it('returns only photos w/ {safe_search: "1"}', () => {});

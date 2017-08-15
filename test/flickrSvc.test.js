@@ -1,9 +1,7 @@
 const chai = require( 'chai' ),
   // assert = chai.assert,
   expect = chai.expect,
-  Flickr = require( 'flickrapi' ),
-  env = require( 'dotenv' )
-  /*app = require( '../lib/app' )*/;
+  Flickr = require( 'flickrapi' );
 
 describe('test 3d party API interface', () => {
   let flickrRes;
@@ -11,8 +9,8 @@ describe('test 3d party API interface', () => {
 
   before(done => {
     const flickrOptions = {
-      api_key: '41b7344f4dac64ab2d40e6620360611a',
-      api_secret: env.TESTING_SECRET
+      api_key: process.env.TESTING_KEY,
+      api_secret: process.env.TESTING_SECRET
 
     };
 

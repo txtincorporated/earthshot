@@ -1,9 +1,9 @@
 const chai = require( 'chai' ),
-  assert = chai.assert,
+  // assert = chai.assert,
   expect = chai.expect,
   Flickr = require( 'flickrapi' ),
-  env = require( 'dotenv' ),
-  app = require( '../lib/app' );
+  env = require( 'dotenv' )
+  /*app = require( '../lib/app' )*/;
 
 describe('test 3d party API interface', () => {
   let flickrRes;
@@ -11,8 +11,8 @@ describe('test 3d party API interface', () => {
 
   before(done => {
     const flickrOptions = {
-      api_key: 'env.TESTING_KEY',
-      api_secret: 'env.TESTING_SECRET'
+      api_key: '41b7344f4dac64ab2d40e6620360611a',
+      api_secret: env.TESTING_SECRET
 
     };
 
@@ -32,17 +32,22 @@ describe('test 3d party API interface', () => {
         
       }, (err, result) => {
         if (err) { throw new Error(err); }
-        flickrRes = result.photos;
-        // console.log( flickrRes );
+        flickrRes = result.photos;         
         done();
 
       });
-    });
+    })
+      .then(  )
+      .catch( done );
+    
   }); 
 
   it('returns only photos posted since `min_upload_date`', done => {
-    expect(flickrRes.photo.dateupload).to.not.be.below(yesterDate);
+    let testPhoto = flickrRes.photo[0];
+    console.log(testPhoto);
+    expect( testPhoto.dateupload ).to.be.at.least( yesterDate );
     done();
+
   });
   it('returns no photos without requested tags', () => {});
   it('returns no photos w/o lat and lon', () => {});
